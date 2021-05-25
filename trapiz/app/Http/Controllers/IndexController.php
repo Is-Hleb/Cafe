@@ -9,21 +9,20 @@ use App\Http\Controllers\Pages\HeaderController;
 use App\Http\Controllers\Pages\MenuController;
 use App\Http\Controllers\Pages\NoveltyController;
 use App\Http\Controllers\Pages\PromotionController;
-use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
-    protected $data = [];
 
     public function show()
     {
-        $this->data["header"] = HeaderController::main();
-        $this->data["booking"] = BookingController::main();
-        $this->data["contacts"] = ContactsController::main();
-        $this->data["feedback"] = FeedbackController::main();
-        $this->data["menu"] = MenuController::main();
-        $this->data["novelty"] = NoveltyController::main();
-        $this->data["promotion"] = PromotionController::main();
-        return view("index", $this->data);
+        $data = [];
+        $data["header"] = HeaderController::main();
+        $data["booking"] = BookingController::main();
+        $data["contacts"] = ContactsController::main();
+        $data["feedback"] = FeedbackController::main();
+        $data["menu"] = MenuController::main();
+        $data["novelty"] = NoveltyController::main();
+        $data["promotion"] = PromotionController::main();
+        return view("index", $data);
     }
 }

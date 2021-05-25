@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 probootstrap-animate">
-                <form action="{{ route("post_add_reservation") }}" method="post" class="probootstrap-form">
+                <form name="add_reservation" class="probootstrap-form">
                     {{ csrf_field() }}
                     <div class="row">
                         <div class="col-md-6">
@@ -60,12 +60,41 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 col-md-offset-4">
-                            <input type="submit" id="submit" value="Забронировать" class="btn btn-lg btn-primary btn-block">
+                            <button class="btn btn-lg btn-primary btn-block" type="button" id="reservation_submit">Забронировать</button>
                         </div>
                     </div>
-
                 </form>
             </div>
         </div>
     </div>
 </section>
+
+@push("scripts")
+
+    <script type="text/javascript" defer>
+        let button = document.getElementById("reservation_submit");
+        button.addEventListener('click', function(){
+           let data = new FormData(document.forms.add_reservation);
+           function post(){
+                return new Promise(function(succeed, fail){
+                   let request = new XMLHttpRequest();
+                   request.open("post", "{{ route("post_add_reservation") }}", true);
+                   request.addEventListener("load", function(){
+                       if(request.status < 400)
+                           succeed(request.response);
+                       else
+                           fail(request.statusText);
+                   });
+                   request.send(data);
+                });
+           }
+           post().then(function(text){
+               console.log(text);
+               document.getElementsByName("add_reservation")[0].reset();
+           }, function(status_text){
+               console.log(status_text);
+           })
+        });
+    </script>
+
+@endpush

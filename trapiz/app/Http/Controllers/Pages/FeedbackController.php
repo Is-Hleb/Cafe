@@ -6,7 +6,9 @@ use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Response;
 use MongoDB\Driver\Session;
+use Psy\Util\Json;
 
 class FeedbackController
 {
@@ -15,7 +17,7 @@ class FeedbackController
         return [];
     }
 
-    public function postAddReview(Request $request): \Illuminate\Http\RedirectResponse
+    public function postAddReview(Request $request)
     {
         $validator = validator($request->post(), [
             "email" => 'required',
@@ -35,7 +37,7 @@ class FeedbackController
                     ]);
                 }
 
-        return Redirect::route("index");
+        return \response("Мы обязательно свяжемся с вами");
     }
 
 }

@@ -9,7 +9,7 @@
                 <p>Есть предложения по улучшению кафе? Проблемы с сотрудниками? Некачественная доставка? Напишите нам и постараемся решить любую Вашу проблему! С уважением, Администрация кафе «Русская трапеза»</p>
             </div>
             <div class="col-md-6 col-md-push-1 probootstrap-animate">
-                <form method="post" action="{{ route("post_add_review") }}" class="probootstrap-form">
+                <form method="post" name="send_review" action="{{ route("post_add_review") }}" class="probootstrap-form">
                     {{ csrf_field() }}
                     <div class="form-group">
                         <label for="c_name">Ваше имя</label>
@@ -30,10 +30,42 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <input type="submit" id="c_submit" value="Отправить" class="btn btn-primary btn-lg">
+                        <button class="btn btn-primary btn-lg" type="button" id="review_submit">Отправить</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
 </section>
+
+@push("scripts")
+
+    <script type="text/javascript" defer>
+
+        let button = document.getElementById("review_submit");
+        button.addEventListener("click", function(){
+            let data = new FormData(document.forms.send_review);
+            function post() {
+                return new Promise(function(succeed, fail){
+                   let request = new XMLHttpRequest();
+                   request.open('post', "{{ route("post_add_review") }}", true);
+                   request.addEventListener("load", function(){
+                      if(request.status < 400)
+                          succeed(request.response);
+                      else
+                          fail(request.statusText);
+                   });
+                   request.send(data);
+                });
+            }
+            post().then(function(text){
+                console.log(text);
+                document.getElementsByName("add_review")[0].reset();
+            }, function(error){
+                console.log(error);
+            });
+        });
+
+    </script>
+
+@endpush

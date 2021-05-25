@@ -35,6 +35,6 @@ class BookingController
             ]);
         }
 
-        return Redirect::route("index");
+        return response("Ожидайте звонка оператора");
     }
 }
