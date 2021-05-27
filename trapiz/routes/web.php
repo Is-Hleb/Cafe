@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get("/", [\App\Http\Controllers\IndexController::class, "show"])->name("index");
-Route::get("/login", [\App\Http\Controllers\Secure\AuthController::class, "show"])->name("auth");
+Route::get("/login", [\App\Http\Controllers\Secure\AuthController::class, "show"])->name("auth")->middleware("guest");
 Route::post("/do/login", [\App\Http\Controllers\Secure\AuthController::class, "doLogin"])->name("doLogin");
 Route::post("/feedback", [\App\Http\Controllers\Pages\FeedbackController::class, "postAddReview"])->name("post_add_review");
 Route::post("/reservation/add", [\App\Http\Controllers\Pages\BookingController::class, "postAddReservation"])->name("post_add_reservation");
@@ -31,6 +31,20 @@ Route::group(["middleware" => "admin", "as" => "admin.", "prefix" => "/secure"],
 
     Route::get("/courier/add", [\App\Http\Controllers\Secure\CourierController::class, "showAddForm"])->name("add_courier")->middleware("only_admin");
     Route::post("/post/courier/add", [\App\Http\Controllers\Secure\CourierController::class, "postAddCourier"])->name("post_add_courier")->middleware("only_admin");
+
+    Route::get("/menuitems", [\App\Http\Controllers\Secure\MenuItemController::class, "show"])->name("menu_item")->middleware("main_admin");
+    Route::post("/post/menuitem/add", [\App\Http\Controllers\Secure\MenuItemController::class, "postAddMenuItem"])->name("post_add_menu_item")->middleware("main_admin");
+    Route::post("/post/menuitem/delete", [\App\Http\Controllers\Secure\MenuItemController::class, "postDeleteMenuItem"])->name("post_delete_menu_item")->middleware("main_admin");
+
+    Route::get("/dish", [\App\Http\Controllers\Secure\DishController::class, "show"])->name("dish")->middleware("main_admin");
+    Route::post("/post/dish/add", [\App\Http\Controllers\Secure\DishController::class, "postAddDish"])->name("post_add_dish")->middleware("main_admin");
+    Route::post("/post/dish/delete", [\App\Http\Controllers\Secure\DishController::class, "postDeleteDish"])->name("post_delete_dish")->middleware("main_admin");
+
+    Route::get("/feedback", [\App\Http\Controllers\Secure\FeedbackController::class, "show"])->name("feedback")->middleware("main_admin");
+    Route::post("/post/feedback/delete", [\App\Http\Controllers\Secure\FeedbackController::class, "postDeleteFeedback"])->name("post_delete_feedback")->middleware("main_admin");
+
+    Route::get("/booking", [\App\Http\Controllers\Secure\BookingController::class, "show"])->name("booking")->middleware("courier");
+
 });
 
 

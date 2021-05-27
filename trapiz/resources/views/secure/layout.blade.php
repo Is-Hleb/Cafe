@@ -8,9 +8,15 @@
                 <li class="navbar-link"><a href="{{ route("admin.index") }}">Главная</a></li>
                 @if(Auth::user()->role == "main_admin")
                     <li class="navbar-link"><a href="{{ route("admin.cafe") }}">Кофейни</a></li>
+                    <li class="navbar-link"><a href="{{ route("admin.menu_item") }}">Пункты меню</a></li>
+                    <li class="navbar-link"><a href="{{ route("admin.dish") }}">Меню</a></li>
+                    <li class="navbar-link"><a href="{{ route("admin.feedback") }}">Отзывы</a></li>
                 @endif
                 @if(Auth::user()->role == "admin")
                     <li class="navbar-link"><a href="{{ route("admin.add_courier") }}">Курьеры</a></li>
+                @endif
+                @if(Auth::user()->role == "courier")
+                    <li class="navbar-link"><a href="{{ route("admin.add_courier") }}">Заказы</a></li>
                 @endif
                 <li class="navbar-link"><a href="{{ route("admin.logout") }}">Выйти</a></li>
             </ul>

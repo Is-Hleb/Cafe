@@ -18,10 +18,6 @@ class Restaurant extends Model
         'phone',
     ];
 
-    public static function boot() {
-        parent::boot();
-
-    }
 
     public function admin(): \Illuminate\Database\Eloquent\Relations\HasOne
     {

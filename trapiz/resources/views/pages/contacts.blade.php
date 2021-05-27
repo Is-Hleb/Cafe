@@ -1,4 +1,6 @@
-
+<?php
+    $restaurants = $contacts["restaurants"];
+?>
 <section class="probootstrap-footer">
     <div class="container">
         <div class="row">
@@ -7,7 +9,13 @@
                     <h3>Местоположение</h3>
                     <div class="row">
                         <div class="col-md-6">
-                            <p>Россия, Москва<br>ул. Петровка, 11</p>
+                            <p>
+                                @if(!empty($restaurants))
+                                    @foreach($restaurants as $restaurant)
+                                        {{ $restaurant->address }}<br>
+                                    @endforeach
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -30,7 +38,13 @@
                     <h3>Для личной связи:</h3>
                     <div class="row">
                         <div class="col-md-3">
-                            <p>+7 800 7777 000<br>email@mail.ru</p>
+                            <p>
+                                @if(!empty($restaurants))
+                                    @foreach($restaurants as $restaurant)
+                                        {{ $restaurant->phone }}<br>
+                                    @endforeach
+                                @endif
+                            </p>
                         </div>
                     </div>
                 </div>
