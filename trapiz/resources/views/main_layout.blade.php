@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{ asset("css/styles-merged.css") }}">
     <link rel="stylesheet" href="{{ asset("css/style.min.css") }}">
     <link rel="stylesheet" href="{{ asset("css/style.css") }}">
+    <link rel="stylesheet" href="{{ asset("css/images.css") }}">
 </head>
 <body>
 

@@ -20,7 +20,7 @@ Route::post("/feedback", [\App\Http\Controllers\Pages\FeedbackController::class,
 Route::post("/reservation/add", [\App\Http\Controllers\Pages\BookingController::class, "postAddReservation"])->name("post_add_reservation");
 
 
-Route::group(["middleware" => "admin", "as" => "admin.", "prefix" => "/secure"], function() {
+Route::group(["middleware" => "auth", "as" => "admin.", "prefix" => "/secure"], function() {
 
     Route::get("/", [\App\Http\Controllers\Secure\AdminIndexController::class, "show"])->name("index");
     Route::get("/logout", [\App\Http\Controllers\Secure\AdminIndexController::class, "logout"])->name("logout");
@@ -43,8 +43,13 @@ Route::group(["middleware" => "admin", "as" => "admin.", "prefix" => "/secure"],
     Route::get("/feedback", [\App\Http\Controllers\Secure\FeedbackController::class, "show"])->name("feedback")->middleware("main_admin");
     Route::post("/post/feedback/delete", [\App\Http\Controllers\Secure\FeedbackController::class, "postDeleteFeedback"])->name("post_delete_feedback")->middleware("main_admin");
 
-    Route::get("/booking", [\App\Http\Controllers\Secure\BookingController::class, "show"])->name("booking")->middleware("courier");
+    Route::get('/promotion', [\App\Http\Controllers\Secure\PromotionsController::class, 'show'])->name("promotion")->middleware("main_admin");
+    Route::post("/post/promotions/add", [\App\Http\Controllers\Secure\PromotionsController::class, 'postAddPromotion'])->name("post_add_promotion")->middleware("main_admin");
+    Route::post("/post/promotions/delete", [\App\Http\Controllers\Secure\PromotionsController::class, 'postDeletePromotion'])->name("post_delete_promotion")->middleware("main_admin");
 
+
+    Route::get("/booking", [\App\Http\Controllers\Secure\BookingController::class, "show"])->name("booking")->middleware("courier");
+    Route::post("/review/delete", [\App\Http\Controllers\Secure\BookingController::class, "postDeleteReview"])->name("post_delete_review")->middleware("courier");
 });
 
 

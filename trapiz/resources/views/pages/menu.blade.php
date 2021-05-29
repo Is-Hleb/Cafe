@@ -18,9 +18,9 @@
 ?>
 <section class="probootstrap-section probootstrap-bg-white">
     <div class="works__nav " style="text-align: center">
-        <a class="works__nav-link" href="#" data-filter="all">Все меню</a>
+        <a class="navbar-link" href="#" data-filter="all">Все меню</a>
         @foreach($menu_items as $menu_item)
-        <a class="works__nav-link" href="#" data-filter="{{ $menu_item->id }}">{{ $menu_item->name }}</a>
+        <a class="navbar-link" href="#" data-filter="{{ $menu_item->id }}">{{ $menu_item->name }}</a>
         @endforeach
     </div>
     <div class="container">

@@ -15,7 +15,7 @@ class CreateDishesTable extends Migration
     {
         Schema::create('dishes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("menu_item_id")->references("id")->on("menu_items");
+            $table->foreignId("menu_item_id")->references("id")->on("menu_items")->onDelete("cascade");
             $table->string("name")->unique();
             $table->string("image_url");
             $table->float("price");

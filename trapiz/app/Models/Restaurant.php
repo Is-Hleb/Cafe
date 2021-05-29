@@ -24,4 +24,9 @@ class Restaurant extends Model
         return $this->hasOne(User::class, "restaurant_id", "id");
     }
 
+    public function reservations(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Reservation::class, 'restaurant_id', 'id');
+    }
+
 }

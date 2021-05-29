@@ -3,6 +3,7 @@
 namespace App\Http;
 
 use App\Http\Middleware\admin;
+use App\Http\Middleware\Courier;
 use App\Http\Middleware\MainAdmin;
 use App\Http\Middleware\OnlyAdmin;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
@@ -68,5 +69,6 @@ class Kernel extends HttpKernel
         'admin' => admin::class,
         'main_admin' => MainAdmin::class,
         'only_admin' => OnlyAdmin::class,
+        'courier' => Courier::class,
     ];
 }

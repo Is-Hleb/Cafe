@@ -11,12 +11,13 @@
                     <li class="navbar-link"><a href="{{ route("admin.menu_item") }}">Пункты меню</a></li>
                     <li class="navbar-link"><a href="{{ route("admin.dish") }}">Меню</a></li>
                     <li class="navbar-link"><a href="{{ route("admin.feedback") }}">Отзывы</a></li>
+                    <li class="navbar-link"><a href="{{ route("admin.promotion") }}">Аккции</a></li>
                 @endif
                 @if(Auth::user()->role == "admin")
                     <li class="navbar-link"><a href="{{ route("admin.add_courier") }}">Курьеры</a></li>
                 @endif
                 @if(Auth::user()->role == "courier")
-                    <li class="navbar-link"><a href="{{ route("admin.add_courier") }}">Заказы</a></li>
+                    <li class="navbar-link"><a href="{{ route("admin.booking") }}">Заказы</a></li>
                 @endif
                 <li class="navbar-link"><a href="{{ route("admin.logout") }}">Выйти</a></li>
             </ul>

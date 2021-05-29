@@ -49,7 +49,7 @@
                                     <input value="{{ old("price") }}" type="number" name="price" id="name"
                                            class="form-control" placeholder="Введите цену за одно блюдо">
                                 </div>
-                        </div>
+                            </div>
                         </div>
                         <div class="col-md-4">
                             <div class="form-group">
@@ -88,5 +88,66 @@
         </div>
     </div>
     </section>
-
+    @if(!empty($dish))
+        <section class="probootstrap-section probootstrap-bg-white">
+            <div class="works__nav " style="text-align: center">
+                <a class="navbar-link" href="#" data-filter="all">Все меню</a>
+                @foreach($menu_items as $menu_item)
+                    <a class="navbar-link" href="#" data-filter="{{ $menu_item->id }}">{{ $menu_item->name }}</a>
+                @endforeach
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="menus">
+                            @for($i = 0; $i < count($dish); $i += 2)
+                                <?php
+                                $el = $dish[$i];
+                                ?>
+                                <li data-cat="{{ $el->menu_item->id }}">
+                                    <figure class="image"><img
+                                            src="{{ asset("storage/dish_images/".$el->image_url)  }}">
+                                    </figure>
+                                    <div class="text">
+                                        <span class="price">{{ $el->price }} ₽</span>
+                                        <h3>{{ $el->name }}</h3>
+                                        <p>{{ $el->description }}</p>
+                                        <form action="{{ route("admin.post_delete_dish") }}" method="post">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" value="{{ $el->id }}" name="id">
+                                            <button type="submit" class="btn btn-danger">Удалить</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            @endfor
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="menus">
+                            @for($i = 1; $i < count($dish); $i += 2)
+                                <?php
+                                $el = $dish[$i];
+                                ?>
+                                <li data-cat="{{ $el->menu_item->id }}">
+                                    <figure class="image"><img
+                                            src="{{ asset("storage/dish_images/".$el->image_url)  }}">
+                                    </figure>
+                                    <div class="text">
+                                        <span class="price">{{ $el->price }} ₽</span>
+                                        <h3>{{ $el->name }}</h3>
+                                        <p>{{ $el->description }}</p>
+                                        <form action="{{ route("admin.post_delete_dish") }}" method="post">
+                                            {{ csrf_field() }}
+                                            <input type="hidden" value="{{ $el->id }}" name="id">
+                                            <button type="submit" class="btn btn-danger">Удалить</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            @endfor
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    @endif
 @endsection

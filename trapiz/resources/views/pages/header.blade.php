@@ -27,7 +27,7 @@
 
 <section class="flexslider" data-section="welcome">
     <ul class="slides">
-        <li style="background-image: url(img/hero_1.jpg)" class="overlay" data-stellar-background-ratio="0.5">
+        <li class="overlay header_li_1" data-stellar-background-ratio="0.5">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">
@@ -39,7 +39,7 @@
                 </div>
             </div>
         </li>
-        <li style="background-image: url(img/hero_2.jpg)" class="overlay">
+        <li class="overlay header_li_2">
             <div class="container">
                 <div class="row">
                     <div class="col-md-8 col-md-offset-2">

@@ -14,4 +14,5 @@ class Review extends Model
         'name',
         'message'
     ];
+
 }

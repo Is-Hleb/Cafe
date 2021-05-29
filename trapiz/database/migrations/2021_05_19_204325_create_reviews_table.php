@@ -19,6 +19,7 @@ class CreateReviewsTable extends Migration
             $table->string("email")->unique();
             $table->string("name");
             $table->string("message", 600);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
