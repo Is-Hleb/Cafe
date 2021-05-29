@@ -37,11 +37,12 @@
                 <div class="probootstrap-footer-widget">
                     <h3>Для личной связи:</h3>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-md-6">
                             <p>
                                 @if(!empty($restaurants))
                                     @foreach($restaurants as $restaurant)
-                                        {{ $restaurant->phone }}<br>
+                                        {{ $restaurant->phone }},<br>
+                                        {{ $restaurant->admin->email }}<br><br>
                                     @endforeach
                                 @endif
                             </p>
