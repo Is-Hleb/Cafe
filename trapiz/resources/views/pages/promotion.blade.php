@@ -25,7 +25,7 @@
                 @foreach($promotions as $promotion)
                     <div class="col-md-4 col-sm-4">
                         <div class="probootstrap-block-image">
-                            <figure><img src="{{ asset("storage/promotion_images/".$promotion->image_url) }}"
+                            <figure><img class="center-block" src="{{ asset("storage/promotion_images/".$promotion->image_url) }}"
                                          data-section="action"></figure>
                             <div class="text">
                                 <span class="date">{{ $promotion->created_at }}</span>
