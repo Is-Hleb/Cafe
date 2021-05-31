@@ -10,8 +10,7 @@ $promotion_dish = $novelty["promotion_dish"];
                         <?php $el = $promotion_dish[$i] ?>
                         <div class="probootstrap-cell probootstrap-animate" data-animate-effect="fadeIn"
                              data-section="free">
-                            <div class="image"
-                                 style="background-image: url({{ asset("storage/dish_images/".$el->image_url) }});"></div>
+                            <img class="image" src="{{ asset("storage/dish_images/".$el->image_url) }}">
                             <div class="text text-center">
                                 <h3>{{$el->name}}</h3>
                                 <p>{{$el->description}}</p>
@@ -25,8 +24,7 @@ $promotion_dish = $novelty["promotion_dish"];
                         <?php $el = $promotion_dish[$i] ?>
                         <div class="probootstrap-cell probootstrap-animate" data-animate-effect="fadeIn"
                              data-section="free">
-                            <div class="image"
-                                 style="background-image: url({{ asset("storage/dish_images/".$el->image_url) }});"></div>
+                            <img class="image" src="{{ asset("storage/dish_images/".$el->image_url) }}">
                             <div class="text text-center">
                                 <h3>{{$el->name}}</h3>
                                 <p>{{$el->description}}</p>

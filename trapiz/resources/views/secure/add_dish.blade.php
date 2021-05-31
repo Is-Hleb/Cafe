@@ -57,8 +57,8 @@
                                 <div class="form-field">
                                     <i class="icon icon-chevron-down"></i>
                                     <select name="is_promotion" id="action" class="form-control">
-                                        <option value="true">Нет</option>
-                                        <option value="false">Да</option>
+                                        <option value="false">Нет</option>
+                                        <option value="true">Да</option>
                                     </select>
                                 </div>
                             </div>
