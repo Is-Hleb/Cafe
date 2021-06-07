@@ -36,7 +36,7 @@ class DishController extends Controller
             'price' => $request->post('price'),
             'image_url' => $file_name,
             'name' => $request->post("name"),
-            'is_promotion' => $request->post("is_promotion") == "true",
+             'is_promotion' => $request->post("is_promotion") == "true",
         ]);
 
         return Redirect::back();

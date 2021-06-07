@@ -7,7 +7,7 @@
 @if(!empty($promotions))
 
     <section style="background-image: url({{ asset("img/hero_bg_4.jpg") }});" data-stellar-background-ratio="0.5"
-             data-section="events">
+             data-section="action">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center ">

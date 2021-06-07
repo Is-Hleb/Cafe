@@ -20,6 +20,7 @@ class CreateReservationsTable extends Migration
             $table->string("phone");
             $table->string("email");
             $table->string("address");
+            $table->string("selected_menu");
             $table->softDeletes();
             $table->timestamps();
         });

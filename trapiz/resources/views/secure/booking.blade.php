@@ -10,6 +10,7 @@
                         <th>Адрес заказа</th>
                         <th>номер телефона</th>
                         <th>email</th>
+                        <th>Выбранное меню</th>
                         <th>Отметить</th>
                     </tr>
                     @foreach($reservations as $reservation)
@@ -18,6 +19,7 @@
                             <td>{{ $reservation->address }}</td>
                             <td>{{ $reservation->phone }} </td>
                             <td>{{ $reservation->email }} </td>
+                            <td>{{ $reservation->selected_menu }} </td>
                             <td>
                                 <div class="col-md-9">
                                     <form method="post" action="{{ route("admin.post_delete_review") }}">

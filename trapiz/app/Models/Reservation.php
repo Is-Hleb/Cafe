@@ -14,6 +14,7 @@ class Reservation extends Model
         'phone',
         'email',
         'restaurant_id',
+        'selected_menu',
     ];
 
     public function restaurant()

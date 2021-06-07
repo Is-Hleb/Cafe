@@ -1,10 +1,10 @@
 <?php
-    $restaurants = $contacts["restaurants"];
+$restaurants = $contacts["restaurants"];
 ?>
 <section class="probootstrap-footer">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 probootstrap-animate">
+            <div class="col-md-6">
                 <div class="probootstrap-footer-widget">
                     <h3>Местоположение</h3>
                     <div class="row">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-5 probootstrap-animate">
+            <div class="col-md-5 ">
                 <div class="probootstrap-footer-widget">
                     <h3>Рабочий график</h3>
                     <div class="row">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 probootstrap-animate">
+            <div class="col-md-6 ">
                 <div class="probootstrap-footer-widget">
                     <h3>Для личной связи:</h3>
                     <div class="row">

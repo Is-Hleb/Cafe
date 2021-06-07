@@ -1,7 +1,7 @@
 <section class="probootstrap-section probootstrap-bg-white" data-section="contact">
     <div class="container">
         <div class="row">
-            <div class="col-md-5 text-center probootstrap-animate">
+            <div class="col-md-5 text-center">
                 <div class="probootstrap-heading dark">
                     <h1 class="primary-heading" style="opacity: 0">Contacts</h1>
                     <h3 class="secondary-heading">Напишите нам!</h3>
@@ -9,7 +9,7 @@
                 <p>Есть предложения по улучшению кафе? Проблемы с сотрудниками? Некачественная доставка? Напишите нам и
                     постараемся решить любую Вашу проблему! С уважением, Администрация кафе «Русская трапеза»</p>
             </div>
-            <div class="col-md-6 col-md-push-1 probootstrap-animate">
+            <div class="col-md-6 col-md-push-1 ">
                 <form method="post" name="send_review" action="{{ route("post_add_review") }}"
                       class="probootstrap-form">
                     {{ csrf_field() }}
@@ -62,8 +62,8 @@
             }
 
             post().then(function (text) {
-                console.log(text);
-                document.getElementsByName("add_review")[0].reset();
+                alert(text);
+                document.getElementsByName("send_review")[0].reset();
             }, function (error) {
                 console.log(error);
             });
